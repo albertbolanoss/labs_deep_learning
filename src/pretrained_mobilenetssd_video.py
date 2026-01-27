@@ -18,10 +18,14 @@ while (file_video_stream.isOpened):
     img_to_detect = current_frame
     img_height = img_to_detect.shape[0]
     img_width = img_to_detect.shape[1]
+    
     # resize to match input size, convert to blob to pass into model
+    # resized_img_to_detect = cv2.resize(img_to_detect,(300,300))
     resized_img_to_detect = cv2.resize(img_to_detect,(1080,1920))
-    img_blob = cv2.dnn.blobFromImage(resized_img_to_detect,0.007843,(1080,1920),127.5)
     #recommended scale factor is 0.007843, width,height of blob is 300,300, mean of 255 is 127.5, 
+    # img_blob = cv2.dnn.blobFromImage(resized_img_to_detect,0.007843,(300,300),127.5)
+    img_blob = cv2.dnn.blobFromImage(resized_img_to_detect,0.007843,(1080,1920),127.5)
+    
 
     # set of 21 class labels in alphabetical order (background + rest of 20 classes)
     class_labels = ["background", "aeroplane", "bicycle", "bird", "boat","bottle", "bus", "car", "cat", "chair", "cow", "diningtable","dog", "horse", "motorbike", "person", "pottedplant", "sheep","sofa", "train", "tvmonitor"]
