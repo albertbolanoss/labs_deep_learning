@@ -208,3 +208,5 @@ __marimo__/
 
 
 .vscode
+
+models/yolov3.weights
